@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -N basic_result_1024
+#PBS -k eo
+#PBS -l nodes=1:ppn=4
+#PBS -l walltime=00:30:00
+
+export OMP_NUM_THREADS=4
+
+SRC_DIR=$HOME/trabajo_hpc
+TEST_DIR=$SRC_DIR/tests
+OPT_DIR=$SRC_DIR/opt
+cat $PBS_NODEFILE > $TEST_DIR/$PBS_JOBNAME.n$PBS_JOBID   ## save compute nodes
+
+$OPT_DIR/esqueleto $ARG                         ## launch the program
+mv $HOME/$PBS_JOBNAME.* $TEST_DIR/                       ## move error and output files from HOME to working directory
