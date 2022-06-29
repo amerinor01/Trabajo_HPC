@@ -6,10 +6,10 @@
 
 export OMP_NUM_THREADS=4
 
-SRC_DIR=$HOME/trabajo_hpc
+SRC_DIR=$HOME/Trabajo_HPC
 TEST_DIR=$SRC_DIR/tests
 OPT_DIR=$SRC_DIR/opt
 cat $PBS_NODEFILE > $TEST_DIR/$PBS_JOBNAME.n$PBS_JOBID   ## save compute nodes
 
-$OPT_DIR/esqueleto $ARG                         ## launch the program
+$OPT_DIR/esqueleto 4096                         ## launch the program
 mv $HOME/$PBS_JOBNAME.* $TEST_DIR/                       ## move error and output files from HOME to working directory

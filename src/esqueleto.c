@@ -71,7 +71,6 @@ int main(int argc, char **argv){
     // Multiply A * B and B * A
     #pragma omp parallel private(i)
     {  
-        printf("Thread %d started\n", omp_get_thread_num());
         #pragma omp for
             for(i = 0; i < n; ++i){                                          
             cblas_dgemv(CblasRowMajor,CblasNoTrans,n,n,ALPHA,A,n,&M(B,i,0,1),n,BETA,&M(C,i,0,1),n); // C = A * B

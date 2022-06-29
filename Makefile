@@ -4,8 +4,8 @@ CFLAGS= -Iinclude/ -fopenmp
 all: mpi_gemm
 
 mpi_gemm: 
-	$(CC) -c src/memoryfun.c -o lib/memoryfun.o  $(CFLAGS) $(C_OPTIMIZED_FLAGS)
-	$(CC) -c src/esqueleto.c -o lib/esqueleto.o  $(CFLAGS) $(C_OPTIMIZED_FLAGS)
-	$(CC) -o opt/esqueleto lib/esqueleto.o lib/memoryfun.o -lcblas -fopenmp $(C_OPTIMIZED_FLAGS)
+	$(CC) -c src/memoryfun.c -o lib/memoryfun.o  $(CFLAGS) 
+	$(CC) -c src/esqueleto.c -o lib/esqueleto.o  $(CFLAGS) 
+	$(CC) -o opt/esqueleto lib/esqueleto.o lib/memoryfun.o -lblas -fopenmp 
 
 
